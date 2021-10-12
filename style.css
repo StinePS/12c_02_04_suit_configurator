@@ -1,4 +1,144 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+/* GENERAL STYLING */
+header {
+  background-color: dodgerblue;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+main {
+  background-color: #fff;
+}
+
+footer {
+  background-color: dodgerblue;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.splash-text {
+  font-family: "Cinzel", serif;
+  font-size: 6rem;
+}
+
+.xl-text {
+  font-family: "Cinzel", serif;
+  font-size: 3.5rem;
+}
+
+.menu-text {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.5rem;
+}
+
+.nav-text {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+}
+
+/* SPLASH */
+#splash {
+  height: 35vw;
+  background-image: url("images/splash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* CONFIGURATOR */
+#configurator {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+#menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#product-preview .hide {
+  opacity: 0;
+}
+
+.flyout-panel {
+  transform: translateX(100%);
+}
+
+.flyout-panel-display {
+  transform: translateX(0%);
+  animation-duration: 0.3s;
+}
+
+/* Options */
+/* .option-selected */
+
+/* Color swatches */
+.color-swatches {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.color-active {
+  outline: 3px solid orange;
+}
+
+.color {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+/* COLORS */
+.black {
+  background-color: rgb(28, 26, 26);
+}
+
+.darkblue {
+  background-color: rgb(12, 32, 143);
+}
+
+.green {
+  background-color: rgb(16, 99, 29);
+}
+
+.lightblue {
+  background-color: rgb(142, 225, 250);
+}
+
+.mint {
+  background-color: rgb(131, 255, 214);
+}
+
+.pink {
+  background-color: rgb(227, 98, 162);
+}
+
+.purple {
+  background-color: rgb(85, 15, 135);
+}
+
+.white {
+  background-color: rgb(240, 240, 240);
 }
