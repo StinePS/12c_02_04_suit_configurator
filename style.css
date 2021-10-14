@@ -10,6 +10,13 @@ html {
 
 img {
   width: 100%;
+    
+}
+#Suit_img {
+    height: 60rem;
+    width: 20rem;
+    margin: 2rem;
+    margin-left: 16rem;
 }
 
 /* GENERAL STYLING */
@@ -56,8 +63,15 @@ a {
 
 .menu-text {
   font-family: "Quicksand", sans-serif;
-  font-size: 1.5rem;
-  padding: 0 1rem 1rem 1rem;
+  font-size: 1.8rem;
+  padding: 1rem 1rem 1rem;
+    
+}
+
+.attribute-header {
+    display: flex;
+    text-align: center;
+    
 }
 
 .nav-text {
@@ -90,6 +104,10 @@ a {
 
 #product-preview .hide {
   opacity: 0;
+}
+.attribute-img {
+    width: 90px;
+    height: 90px;
 }
 
 .flyout-panel {
