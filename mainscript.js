@@ -32,3 +32,52 @@ function displayFlyout(event) {
   document.querySelector(`#flyout-menu  [data-feature=${feature}]`).classList.add("flyout-panel-display");
   init();
 }
+
+function TogglePockets() {
+  var x = document.getElementById("myPockets");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+function ToggleButton() {
+  var x = document.getElementById("myButton");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+function ToggleLapel() {
+  var x = document.getElementById("myLapel");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function ToggleHandkerchief() {
+  var x = document.getElementById("myHandkerchief");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+function ToggleTie() {
+  var x = document.getElementById("myTie");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function ToggleBowtie() {
+  var x = document.getElementById("myBowtie");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
