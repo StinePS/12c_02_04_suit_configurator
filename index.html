@@ -31,10 +31,35 @@
 
       <h2 class="xl-text">SUIT CONFIGURATOR</h2>
       <p>Please select the feature that you would like to modify!</p>
-
+        <button onclick="TogglePockets()">Show Pockets</button>
+        <button onclick="ToggleButton()">Show Button</button>
+        <button onclick="ToggleLapel()">Show Lapel</button>
+        <button onclick="ToggleHandkerchief()">Show Handkerchief</button>
+        <button onclick="ToggleTie()">Show Tie</button>
+        <button onclick="ToggleBowtie()">Show Bowtie</button>
       <section id="configurator">
         <div id="product-preview">
-          <img id="Suit_img" src="images/Suit1.png" alt="Basic suit" class="basic" data-feature="basic" />
+         
+          <img id="Layer1" src="images/Suit1.png" alt="Basic suit" class="basic" data-feature="basic" />
+          <div id="myPockets">
+          <img id="Layer2" src="images/Suit2.png" alt="Pockets" class="basic" data-feature="basic" />
+          </div>
+            <div id="myButton">
+          <img id="Layer3" src="images/Suit3.png" alt="Button" class="basic" data-feature="basic" />
+            </div>
+            <div id="myLapel">
+          <img id="Layer4" src="images/Suit4.png" alt="Lapel" class="basic" data-feature="basic" />
+            </div>
+            <div id="myHandkerchief">
+          <img id="Layer5" src="images/Suit5.png" alt="Handkerchief" class="basic" data-feature="basic" />
+            </div>
+                <div id="myTie">
+          <img id="Layer6" src="images/Suit6.png" alt="Tie" class="basic" data-feature="basic" />
+            </div>
+            <div id="myBowtie">
+          <img id="Layer7" src="images/Suit7.png" alt="Bowtie" class="basic" data-feature="basic" />
+            </div>
+          
           <!-- TODO: Add all feature image layers -->
         </div>
 
