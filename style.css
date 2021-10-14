@@ -20,17 +20,17 @@ img {
 
 /* GENERAL STYLING */
 header {
-  background-color: dodgerblue;
+  background-color: #365275;
   color: white;
   padding: 2rem 1rem;
 }
 
 main {
-  background-color: #fff;
+  background-color: #fcf8f8;
 }
 
 footer {
-  background-color: dodgerblue;
+  background-color: #365275;
   color: white;
   padding: 2rem 1rem;
 }
@@ -44,14 +44,37 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin-left: 10px;
+  font-family: "montserrat", sans-serif;
+  font-weight: 400;
+}
+
 .splash-text {
-  font-family: "Cinzel", serif;
-  font-size: 6rem;
+  font-family: "Playfair Display", serif;
+  font-size: 5rem;
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+.ivory {
+  color: ivory;
 }
 
 .xl-text {
-  font-family: "Cinzel", serif;
+  font-family: "Playfair Display", serif;
   font-size: 3.5rem;
+  margin-left: 10px;
+  padding-bottom: 1%;
+  font-weight: 600;
+}
+
+.med-text {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  padding-top: 5%;
+  font-weight: 500;
+  text-align: center;
 }
 
 .menu-header-text {
@@ -74,6 +97,8 @@ a {
 .nav-text {
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
+  color: white;
+  margin-right: 4%;
 }
 
 .flyout-content {
@@ -81,11 +106,38 @@ a {
 }
 
 /* SPLASH */
-#splash {
-  height: 35vw;
+#splashMain {
+  width: 100vw;
+  height: 50vh;
   background-image: url("images/splash.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  display: grid;
+  background-position: 56% 48%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+#splashMain div {
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
+
+#splashContact {
+  width: 100vw;
+  height: 50vh;
+  background-image: url("images/phoneGuy.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  background-position: 54% 67%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+#splashContact div {
+  grid-column: 1/3;
+  grid-row: 1/3;
 }
 
 /* CONFIGURATOR */
@@ -186,4 +238,45 @@ li:hover {
 
 .white {
   background-color: rgb(240, 240, 240);
+}
+
+#twoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 60vw;
+  padding: 2%;
+  margin: 0 auto;
+}
+
+.columnContainer {
+  padding: 5%;
+}
+
+#messageForm {
+  width: 25vw;
+  height: 20vh;
+}
+
+.formStuff {
+  font-family: "montserrat", sans-serif;
+  font-weight: 300;
+  color: gray;
+}
+
+#submitButton {
+  width: 80px;
+  height: 30px;
+  background-color: #8f9c72;
+  border: #8f9c72;
+  color: white;
+  border-radius: 10%;
+}
+
+@media (orientation: portrait) and (min-width: 600px) {
+  .splash-text {
+    font-size: 6rem;
+  }
+  #splash {
+    height: 65vh;
+  }
 }
