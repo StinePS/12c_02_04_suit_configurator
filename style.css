@@ -10,13 +10,12 @@ html {
 
 img {
   width: 100%;
-    
 }
 #Suit_img {
-    height: 60rem;
-    width: 20rem;
-    margin: 2rem;
-    margin-left: 16rem;
+  height: 60rem;
+  width: 20rem;
+  margin: 2rem;
+  margin-left: 16rem;
 }
 
 /* GENERAL STYLING */
@@ -65,13 +64,11 @@ a {
   font-family: "Quicksand", sans-serif;
   font-size: 1.8rem;
   padding: 1rem 1rem 1rem;
-    
 }
 
 .attribute-header {
-    display: flex;
-    text-align: center;
-    
+  display: flex;
+  text-align: center;
 }
 
 .nav-text {
@@ -79,7 +76,7 @@ a {
   font-size: 1rem;
 }
 
-.option {
+.flyout-content {
   padding-left: 1rem;
 }
 
@@ -94,7 +91,7 @@ a {
 /* CONFIGURATOR */
 #configurator {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 2fr;
 }
 
 #menu {
@@ -106,13 +103,13 @@ a {
   opacity: 0;
 }
 .attribute-img {
-    width: 90px;
-    height: 90px;
+  width: 90px;
+  height: 90px;
 }
 
 .flyout-panel {
   position: absolute;
-  transform: translateX(100%);
+  transform: translateX(180%);
   transition: transform 0.3s;
 }
 
@@ -134,9 +131,11 @@ li {
 li:hover {
   background-color: #eaeaea;
 }
+
 #flyout-menu {
   border-top: 1px solid grey;
 }
+
 /* .option-selected */
 
 /* Color swatches */
