@@ -101,6 +101,12 @@ p {
   font-weight: 400;
 }
 
+label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
 .splash-text {
   font-family: "Playfair Display", serif;
   font-size: 5rem;
@@ -281,10 +287,10 @@ li:hover {
   flex-wrap: wrap;
 }
 
-.color-active {
+/* .color-active {
   outline-offset: 2px;
   outline: 2px dashed grey;
-}
+} */
 
 .color {
   width: 2rem;
