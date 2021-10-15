@@ -17,7 +17,7 @@ const features = {
 
 async function getData() {
   console.log("getData");
-  let response = await fetch("/images/Suit-01.svg");
+  let response = await fetch("images/suit-01.svg");
   let svgData = await response.text();
   document.querySelector("#product-preview").innerHTML = svgData;
   document.getElementById("suit_lapel").style.display = "none";
