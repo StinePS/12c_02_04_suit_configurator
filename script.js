@@ -3,25 +3,13 @@
 window.addEventListener("DOMContentLoaded", getData);
 
 let selectedColor;
-
-// Features that can be modified "physically" (not just change color)
-const features = {
-  fabric: false,
-  lapel: false,
-  tie: true,
-  bowtie: false,
-  pocketsquare: true,
-  pocketflaps: false,
-  buttons: false,
-};
+const colorSwatches = document.querySelectorAll(".color-swatches");
 
 async function getData() {
   console.log("getData");
   let response = await fetch("images/suit-01.svg");
   let svgData = await response.text();
   document.querySelector("#product-preview").innerHTML = svgData;
-  document.getElementById("suit_lapel").style.display = "none";
-  document.getElementById("suit_bowtie").style.display = "none";
   init();
 }
 
@@ -29,113 +17,128 @@ function init() {
   // Register clicks
   document.querySelectorAll(".attribute").forEach((attribute) => attribute.addEventListener("click", displayFlyout));
 
-  const radioButtons = document.querySelectorAll(`input[type="radio"]`);
-  radioButtons.forEach((radiobtn) => radiobtn.addEventListener("change", clickedButton));
+  const radioFeatures = document.querySelectorAll(".radio-flyout");
+  radioFeatures.forEach((radioFeature) => {
+    if (radioFeature.checked) {
+      toggleFeature(radioFeature.name, radioFeature.value);
+    }
+    radioFeature.addEventListener("change", clickedFeatureButton);
+  });
 
-  document.querySelectorAll(".color").forEach((element) => {
-    element.addEventListener("click", (event) => {
-      selectedColor = event.target.style.backgroundColor;
-    });
+  const radioColors = document.querySelectorAll(".color input");
+  radioColors.forEach((radioColor) => {
+    if (radioColor.checked) {
+      chooseColor(radioColor.name, radioColor.value);
+    }
+    radioColor.addEventListener("change", clickedColorButton);
   });
 }
 
 function displayFlyout(event) {
+  // Show the flyout belonging to the clicked attribute
   let target = event.currentTarget;
   let feature = target.dataset.feature;
   console.log("displayFlyout", target.dataset.feature);
   let currentFlyout = document.querySelector(`#flyout-menu [data-feature=${feature}]`);
   let oldFlyout = document.querySelector("#flyout-menu .flyout-panel-display");
 
+  // Add class/transition to the clicked attribute and remove same from the former flyout
   currentFlyout.classList.add("flyout-panel-display");
-  oldFlyout.classList.remove("flyout-panel-display");
-  displayDashes();
+  if (oldFlyout) oldFlyout.classList.remove("flyout-panel-display");
 
-  function displayDashes() {
-    console.log("displayDashes");
-    let currentFeature = document.querySelector(`#product-preview [data-feature=${feature}]`);
-    let oldFeature = document.querySelector("#product-preview .feature-chosen");
+  // Display "ants" to mark clicked attribute
+  let currentFeature = document.querySelector(`#${feature}`);
+  let oldFeature = document.querySelector(`.feature-chosen`);
 
-    currentFeature.classList.add("feature-chosen");
-    oldFeature.classList.remove("feature-chosen");
-  }
+  if (currentFeature) currentFeature.classList.add("feature-chosen");
+  if (oldFeature) oldFeature.classList.remove("feature-chosen");
 }
 
-function clickedButton(event) {
-  console.log("clickedButton");
-  const selectedRadio = event.currentTarget;
-
-  toggleFeature(selectedRadio.name, selectedRadio.value);
+function clickedFeatureButton(event) {
+  console.log("clickedFeatureButton");
+  const selectedFeatureRadio = event.currentTarget;
+  toggleFeature(selectedFeatureRadio.name, selectedFeatureRadio.value);
 }
 
 function toggleFeature(name, value) {
   console.log("toggleFeature", name, value);
   switch (name) {
-    case "radio-lapel":
-      toggleLapel(value);
-
-      break;
     case "radio-tie":
       toggleTie(value);
-      setColor(value);
       break;
     case "radio-bowtie":
       toggleBowtie(value);
-      setColor();
       break;
     case "radio-pocketsquare":
       togglePocketsquare(value);
-      setColor();
       break;
     case "radio-pockets":
       togglePockets(value);
-      setColor();
       break;
     case "radio-buttons":
       toggleButtons(value);
-      setColor();
       break;
-  }
-}
-
-function toggleLapel(value) {
-  let x = document.getElementById("suit_lapel");
-  if (value === "lapel-wide") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
   }
 }
 
 function toggleTie(value) {
-  let x = document.getElementById("suit_tie");
+  let tieImg = document.getElementById("suit_tie");
+  let tieColor = document.getElementById("tie");
+  let radioButtons = document.querySelector(".tie-swatches");
   if (value === "tie-true") {
-    x.style.display = "block";
+    // Show img, coloured path and radio buttons
+    tieImg.style.display = "block";
+    tieColor.style.display = "block";
+    radioButtons.style.display = "flex";
+    // Hide bowtie img,
     document.querySelector(`input[id="bowtie-false"]`).checked = true;
     document.getElementById("suit_bowtie").style.display = "none";
-    setColor(value);
+    document.getElementById("bowtie").style.display = "none";
+    document.querySelector(".bowtie-swatches").style.display = "none";
   } else {
-    x.style.display = "none";
+    // Hide img, coloured path and radio buttons
+    tieImg.style.display = "none";
+    tieColor.style.display = "none";
+    radioButtons.style.display = "none";
   }
 }
 
 function toggleBowtie(value) {
-  let x = document.getElementById("suit_bowtie");
+  let bowtieImg = document.getElementById("suit_bowtie");
+  let bowtieColor = document.getElementById("bowtie");
+  let radioButtons = document.querySelector(".bowtie-swatches");
   if (value === "bowtie-true") {
-    x.style.display = "block";
+    // Show img, coloured path and radio buttons
+    bowtieImg.style.display = "block";
+    bowtieColor.style.display = "block";
+    radioButtons.style.display = "flex";
+    // Hide tie
     document.querySelector(`input[id="tie-false"]`).checked = true;
     document.getElementById("suit_tie").style.display = "none";
-    setColor(value);
+    document.getElementById("tie").style.display = "none";
+    document.querySelector(".tie-swatches").style.display = "none";
   } else {
-    x.style.display = "none";
+    // Hide img, coloured path and radio buttons
+    bowtieImg.style.display = "none";
+    bowtieColor.style.display = "none";
+    radioButtons.style.display = "none";
   }
 }
 
 function togglePocketsquare(value) {
-  let x = document.getElementById("suit_pocketsquare");
+  let pocImg = document.getElementById("suit_pocketsquare");
+  let pocColor = document.getElementById("pocketsquare");
+  let radioButtons = document.querySelector(".pocketsquare-swatches");
   if (value === "pocketsquare-true") {
-    x.style.display = "block";
+    // Show img, coloured path and radio buttons
+    pocImg.style.display = "block";
+    pocColor.style.display = "block";
+    radioButtons.style.display = "flex";
   } else {
-    x.style.display = "none";
+    // Hide img, coloured path and radio buttons
+    pocImg.style.display = "none";
+    pocColor.style.display = "none";
+    radioButtons.style.display = "none";
   }
 }
 
@@ -157,8 +160,14 @@ function toggleButtons(value) {
   }
 }
 
-function setColor(element, selectedColor) {
-  console.log(element, selectedColor);
-  element.style.fill = selectedColor;
-  element.style.stroke = selectedColor;
+function clickedColorButton(event) {
+  console.log("clickedColorButton");
+  const selectedColorRadio = event.currentTarget;
+  chooseColor(selectedColorRadio.name, selectedColorRadio.value);
+}
+
+function chooseColor(name, value) {
+  console.log("chooseColor", name, value);
+  const element = document.querySelector(`#${name.split("-")[0]} path`);
+  element.className.baseVal = value;
 }
